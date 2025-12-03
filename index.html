@@ -231,7 +231,7 @@
                 <input type="text" id="complemento">
             </div>
             <br><br>
-            <button type="submit">Enviar</button>
+            <button type="submit">Enviar Pedido por WhatsApp 🚀</button>
         </form>
     </div>
 
@@ -283,7 +283,7 @@
             }
             
             // 1. Coletar os valores dos campos
-            var nome = document.getElementById("nome").value; // ALTERADO AQUI
+            var nome = document.getElementById("nome").value; 
             var cep = document.getElementById("cep").value; 
             
             // Campos de região
@@ -299,16 +299,14 @@
             var linkFixo = "https://www.exemplo.com.br/verificacao"; // <-- MUDAR ESTE LINK!
             
             // Seu número de WhatsApp
-            // Seu número de WhatsApp
-            // Seu número de WhatsApp
             var numeroWhatsApp = "5562995679219"; 
             
-            // 2. Montar a mensagem com quebras de linha (\n)
+            // 2. Montar a mensagem completa com quebras de linha (\n)
             var mensagem = 
                 "🚀 *NOVO CADASTRO DE CLIENTE* 🚀\n\n" + 
                 
                 "*👤 Dados Pessoais 👤*\n" + 
-                "Nome: " + nome + "\n\n" + // ALTERADO AQUI
+                "Nome: " + nome + "\n\n" +
                 
                 "🏠 *Detalhes de Localização*\n" +
                 "📫 CEP: " + cep + "\n" +
@@ -319,16 +317,14 @@
                 "🧾 Complemento: " + complemento + "\n\n" +
                 
                 "🔗 Link de Verificação:\n" + 
-                linkFixo; 
+                linkFixo + "\n\n" + 
+                
+                "👇 *Faça o pagamento do Drink* 👇"; // FRASES ADICIONADAS AQUI
+                
 
             // 3. Codificar a mensagem para URL
             var mensagemCodificada = encodeURIComponent(mensagem);
             
-            
-            "👇 Faça o pagamento do Drink 👇 \n\n" +
-            
-            // 4. Montar o link final
-            // 4. Montar o link final
             // 4. Montar o link final
             var url = "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemCodificada;
 
