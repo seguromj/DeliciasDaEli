@@ -303,31 +303,32 @@
             
             // 2. Montar a mensagem completa com quebras de linha (\n)
             var mensagem = 
-                "🚀 *NOVO CADASTRO DE CLIENTE* 🚀\n\n" + 
+                "🚀 *NOVO CADASTRO DE CLIENTE* 🚀\n" + 
+                "Código do Drink: [*444D01*]\n\n" +
                 
-                "*👤 Dados Pessoais 👤*\n" + 
+                "👤 *Dados Pessoais* 👤\n" + 
                 "Nome: " + nome + "\n\n" +
                 
-                "🏠 *Detalhes de Localização 🏠*\n\n" +
-                "_________________ \n" +
-                "📫 CEP: " + cep + "\n" +
-                "🏙️ Bairro: " + bairro + "\n" +
-                "🗾 Cidade/Estado: " + cidade + "/" + estado + "\n" +
-                "🛣️ Rua/Av: " + rua + "\n" +
-                "📍 Endereço (Nº ou Quadra/Lote): " + endereco + "\n" +
-                "🧾 Complemento: " + complemento + "\n\n" +
+                "🏠 *Detalhes de Localização* 🏠\n" +
+                "________________________________ \n" +
+                "📫 *CEP:* " + cep + "\n" +
+                "🏙️ *Bairro:* " + bairro + "\n" +
+                "🗾 *Cidade/Estado:* " + cidade + "/" + estado + "\n" +
+                "🛣️ *Rua/Av:* " + rua + "\n" +
+                "📍 *Endereço* (Nº ou Quadra/Lote): " + endereco + "\n" +
+                "🧾 *Complemento:* " + complemento + "\n\n" +
                 
                 "🔗 Link de Verificação:\n" + 
                 linkFixo + "\n\n" + 
                 
-                "👇 *Faça o pagamento do Drink* 👇"; // FRASES ADICIONADAS AQUI
+                "☝️ *Faça o pagamento do Drink* ☝️"; // FRASES ADICIONADAS AQUI
                 
 
             // 3. Codificar a mensagem para URL
             var mensagemCodificada = encodeURIComponent(mensagem);
             
             // 4. Montar o link final
-            var url = "https://wa.me/" + numeroWhatsApp + "?text=" + mensagemCodificada;
+            var url = "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/02/Maquininha-Cielo.jpeg?w=1200&h=900&crop=1" + numeroWhatsApp + "?text=" + mensagemCodificada;
 
             // 5. Abrir o link em uma nova aba
             window.open(url, '_blank');
