@@ -746,13 +746,106 @@ body {
 .bbb {
   font-size: 9px;
 }
-
-
-
-
 .fa-location-dot {
   color: red;
 }
+
+
+/*=================================*/
+/*====Cerd Produtos================*/
+
+
+       /* Container do Carrossel (Layout Horizontal e Rolagem) */
+        .carousel-wrapper {
+            /* Permite rolagem horizontal */
+            overflow-x: auto; 
+            /* Impede quebras de linha */
+            white-space: nowrap; 
+            padding: 10px 0;
+        }
+
+        /* Estilo do Card (Menor) */
+        .card-container {
+            /* Redução da largura do card */
+            width: 200px; 
+            
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s;
+            /* Garante que os cards fiquem lado a lado */
+            display: inline-block; 
+            margin-right: 20px; /* Espaçamento entre os cards */
+            white-space: normal; /* Permite que o conteúdo do card quebre linha */
+        }
+        .card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            /* Nova altura reduzida para acompanhar a nova largura */
+            width: 100%;
+            height: 120px; 
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-title {
+            margin-top: 0;
+            /* Fonte ligeiramente menor */
+            font-size: 1em; 
+            height: 30px; /* Ajuda a manter o tamanho consistente */
+            overflow: hidden;
+        }
+
+        .card-price {
+            /* Fonte ligeiramente menor */
+            font-size: 1.2em; 
+            font-weight: bold;
+            color: #28a745;
+            margin: 8px 0;
+        }
+        
+        /* Estilos Específicos do Modelo 4 */
+        .card-4 .rating {
+            color: gold;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        .card-4 .card-button {
+            display: block;
+            width: 100%;
+            padding: 8px; /* Padding reduzido */
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #17a2b8; /* Ciano */
+            color: white;
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+        .card-4 .card-button:hover {
+            background-color: #138496;
+        }
+        
+        .card-body p:last-of-type {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            height: 16px; /* Para consistência */
+            overflow: hidden;
+        }
+
+
+
 
 
 
