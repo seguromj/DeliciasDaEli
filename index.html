@@ -16,31 +16,50 @@
     
     <style>
         /* Apenas para garantir que o formulário fique visualmente aceitável se o styles.css não carregar */
+        :root {
+            --rosa-principal: #d95388;
+        }
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f8f8f8; }
-        
         .app-screen { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        
-        .nuance-info-box { padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        
-        #criacao-bolo h2 { text-align: center; color: #d95388; }
-        
+        .nuance-info-box { padding: 15px; border-radius: 50px; margin-bottom: 20px; }
+        #criacao-bolo h2 { text-align: center; color: var(--rosa-principal); }
         .passos-criacao { display: grid; gap: 20px; }
-        
         .passo-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #fff; }
-        
         .passo-card h3 { color: #5cb85c; margin-top: 0; }
-        
         .input-group label { font-weight: 600; display: block; margin-bottom: 5px; color: #333; }
         .input-group select, .input-group input[type="date"], .input-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; }
         .input-group input[type="radio"], .input-group input[type="checkbox"] { margin-right: 5px; }
-        #resumo-pedido { margin-top: 30px; border: 2px dashed #d95388; padding: 15px; border-radius: 8px; background-color: #fff0f5; }
-        #resumo-pedido h3 { color: #d95388; margin-top: 0; }
+        #resumo-pedido { margin-top: 30px; border: 2px dashed var(--rosa-principal); padding: 15px; border-radius: 8px; background-color: #fff0f5; }
+        #resumo-pedido h3 { color: var(--rosa-principal); margin-top: 0; }
         #resumo-texto { white-space: pre-wrap; background-color: #fff; padding: 10px; border-radius: 4px; border: 1px solid #eee; }
         .btn-whatsapp { display: inline-block; padding: 15px 25px; background-color: #25d366; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: background-color 0.3s; }
         .btn-whatsapp:hover { background-color: #1c9f4e; }
         /* Estilos adicionais para os recheios */
         .recheio-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
         .recheio-label span { font-weight: normal; color: #555; }
+
+        /* Estilos para a nova seção de 2 andares */
+        .passo-card.dois-andares { background-color: #f7f7ff; border-color: #007bff; }
+        .passo-card.dois-andares h3 { color: #007bff; }
+        .andares-container { display: flex; gap: 10px; }
+        .andares-container > div { flex: 1; }
+
+        /* Estilos para o Carrossel (Apenas para garantir que os elementos visuais não quebrem) */
+        .carrossel-container { overflow: hidden; white-space: nowrap; margin-top: 20px; border-radius: 8px; }
+        .carrossel-faixa { display: flex; animation: carrossel-anim 20s linear infinite; }
+        .item-carrossel { width: 100px; height: 100px; margin-right: 10px; flex-shrink: 0; }
+        .item-carrossel img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; }
+        @keyframes carrossel-anim { 
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .review-carousel-container { margin-top: 40px; }
+        .carousel-track { display: flex; overflow-x: scroll; padding-bottom: 15px; }
+        .review-card { flex-shrink: 0; width: 80%; max-width: 300px; margin-right: 15px; border: 1px solid #eee; border-radius: 8px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .img-estrela { width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin-right: 10px; float: left; }
+        .estrela-carrocel, .estrela-diagonal { color: gold; }
+        .review-card .card-content { margin-left: 60px; }
     </style>
 </head>
 <body>
@@ -94,64 +113,7 @@
               
         </div>
     </div>
-<div class="carousel-wrapper">
 
-        <div class="card-container card-4">
-            <img src="imgs/img1.jpeg" alt="Smartwatch Esportivo A" class="card-image">
-            <div class="card-body">
-                <h3 class="card-title">Smartwatch Esportivo Pro</h3>
-                <div class="rating">★★★★★ (4.8)</div>
-                <p>Monitora treino e sono.</p>
-                <p class="card-price">R$ 520,00</p>
-                <a href="#" class="card-button">Mais Opções</a>
-            </div>
-        </div>
-
-        <div class="card-container card-4">
-            <img src="imgs/img2.png" alt="Fone Bluetooth" class="card-image">
-            <div class="card-body">
-                <h3 class="card-title">Fone Bluetooth TWS X9</h3>
-                <div class="rating">★★★★☆ (4.2)</div>
-                <p>Áudio nítido e leve.</p>
-                <p class="card-price">R$ 189,90</p>
-                <a href="#" class="card-button">Mais Opções</a>
-            </div>
-        </div>
-
-        <div class="card-container card-4">
-            <img src="imgs/img3.jpg" alt="Ebook Programação" class="card-image">
-            <div class="card-body">
-                <h3 class="card-title">Ebook: Guia de Backend</h3>
-                <div class="rating">★★★★★ (5.0)</div>
-                <p>Aprenda a criar APIs.</p>
-                <p class="card-price">R$ 49,99</p>
-                <a href="#" class="card-button">Comprar</a>
-            </div>
-        </div>
-
-        <div class="card-container card-4">
-            <img src="imgs/img4.jpg" alt="Cadeira Gamer" class="card-image">
-            <div class="card-body">
-                <h3 class="card-title">Cadeira Gamer Ergonômica</h3>
-                <div class="rating">★★★★☆ (4.5)</div>
-                <p>Máximo conforto para longas sessões.</p>
-                <p class="card-price">R$ 999,00</p>
-                <a href="#" class="card-button">Mais Opções</a>
-            </div>
-        </div>
-
-        <div class="card-container card-4">
-            <img src="imgs/img5.jpeg" alt="Caneca Termica" class="card-image">
-            <div class="card-body">
-                <h3 class="card-title">Caneca Térmica Inox</h3>
-                <div class="rating">★★★★☆ (4.3)</div>
-                <p>Mantém a bebida quente por horas.</p>
-                <p class="card-price">R$ 85,50</p>
-                <a href="#" class="card-button">Comprar Agora</a>
-            </div>
-        </div>
-        
-    </div>
 
 
 <hr style="border: 0; border-top: 1px dashed var(--rosa-principal); margin: 60px 0;">
@@ -164,34 +126,54 @@
                 <div class="passos-criacao">
 
                     <div class="passo-card">
-                        <h3>1. Tamanho e Andares</h3>
+                        <h3>1A. Bolo de 1 Andar (Por Diâmetro)</h3>
                         <div class="input-group">
-                            <label for="tamanho-bolo">Escolha o Tamanho:</label>
+                            <label for="tamanho-bolo">Escolha o Diâmetro/Tamanho:</label>
                             <select id="tamanho-bolo" name="tamanho" required>
                                 <option value="" data-preco="0">-- Selecione --</option>
-                                <optgroup label="1 Andar">
-                                    <option value="Mini (13cm = 1 Kg)" data-preco="60">Mini (13cm = 1 Kg) - R$60,00</option>
-                                    <option value="Pequeno (15cm = 1,5 Kg)" data-preco="90">Pequeno (15cm = 1,5 Kg) - R$90,00</option>
-                                    <option value="Pequeno (15cm = 2 Kg)" data-preco="120">Pequeno (15cm = 2 Kg) - R$120,00</option>
-                                    <option value="Médio (16cm = 2,5 Kg)" data-preco="150">Médio (16cm = 2,5 Kg) - R$150,00</option>
-                                    <option value="Médio (16cm = 3 Kg)" data-preco="180">Médio (16cm = 3 Kg) - R$180,00</option>
-                                    <option value="Grande (20cm = 3,5 Kg)" data-preco="210">Grande (20cm = 3,5 Kg) - R$210,00</option>
-                                    <option value="Grande (20cm = 4 Kg)" data-preco="240">Grande (20cm = 4 Kg) - R$240,00</option>
-                                    <option value="Grande (25cm = 4,5 Kg)" data-preco="270">Grande (25cm = 4,5 Kg) - R$270,00</option>
-                                    <option value="Grande (25cm = 5 Kg)" data-preco="300">Grande (25cm = 5 Kg) - R$300,00</option>
+                                <optgroup label="1 Andar (Por Diâmetro/Peso Aproximado - R$60/Kg)">
+                                    <option value="13cm (~1,0 kg)" data-preco="60">13cm (1,0 kg) - R$60,00</option>
+                                    <option value="15cm (~1,5 kg)" data-preco="90">15cm (1,5 kg) - R$90,00</option>
+                                    <option value="16cm (~2,5 kg)" data-preco="150">16cm (2,5 kg) - R$150,00</option>
+                                    <option value="20cm (~3,5 kg)" data-preco="210">20cm (3,5 kg) - R$210,00</option>
+                                    <option value="25cm (~4,5 kg)" data-preco="270">25cm (4,5 kg) - R$270,00</option>
+                                    <option value="30cm (~6,5 kg)" data-preco="390">30cm (6,5 kg) - R$390,00</option>
                                 </optgroup>
-                                <optgroup label="2 Andares">
-                                    <option value="2 Andares (1,5 kg + 1,0 kg = 2,5 kg)" data-preco="150">2 Andares (1,5 kg + 1,0  kg=  2,5  kg) - R$150,00</option>
-                                    <option value="2 Andares (2,5 kg + 1,0 kg = 3,5 kg)" data-preco="210">2 Andares (2,5 kg + 1,0  kg=  3,5  kg) - R$210,00</option>
-                                    <option value="2 Andares (2,5 kg + 1,5 kg = 4 kg)" data-preco="240">2 Andares (2,5 kg + 1,5 kg = 4 kg) - R$240,00</option>
-
-                                    <option value="2 Andares (3,0 kg + 1,0 kg = 4 kg)" data-preco="240">2 Andares (3 kg + 1,0 kg = 4 kg) - R$240,00</option>
-                                    <option value="2 Andares (3,5 kg + 1,0 kg = 4,5 kg)" data-preco="270">2 Andares (3,5 kg + 1,0 kg = 4,5 kg) - R$270,00</option>
-                                    <option value="2 Andares (4 kg + 1,5 kg = 5,5 kg)" data-preco="240">2 Andares (4 kg + 1,5 kg = 5,5 kg) - R$330,00</option>
-                            
-                                </optgroup>
+                                
                             </select>
                         </div>
+                    </div>
+                    
+                    <div class="passo-card dois-andares">
+                        <h3>1B. Bolo de 2 Andares (Personalizado)</h3>
+                        <p style="font-size: 0.9em; color: #007bff; margin-bottom: 15px;">*Apenas configure a Base e o Topo se não escolheu 1 Andar acima.</p>
+                        <div class="andares-container">
+                            <div class="input-group">
+                                <label for="peso-base">Peso Andar de Baixo (Base):</label>
+                                <select id="peso-base" name="peso-base">
+                                    <option value="0" data-kg="0">-- Kg da Base --</option>
+                                    <option value="2 kg" data-kg="2.0">2 kg (R$120,00)</option>
+                                    <option value="2.5 kg" data-kg="2.5">2,5 kg (R$150,00)</option>
+                                    <option value="3 kg" data-kg="3.0">3 kg (R$180,00)</option>
+                                    <option value="3.5 kg" data-kg="3.5">3,5 kg (R$210,00)</option>
+                                    <option value="4 kg" data-kg="4.0">4 kg (R$240,00)</option>
+                                    <option value="4.5 kg" data-kg="4.5">4,5 kg (R$270,00)</option>
+                                    <option value="5 kg" data-kg="5.0">5 kg (R$300,00)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="peso-topo">Peso Andar de Cima (Topo):</label>
+                                <select id="peso-topo" name="peso-topo">
+                                    <option value="0" data-kg="0">-- Kg do Topo --</option>
+                                    <option value="1 kg" data-kg="1.0">1 kg (R$60,00)</option>
+                                    <option value="1.5 kg" data-kg="1.5">1,5 kg (R$90,00)</option>
+                                    <option value="2 kg" data-kg="2.0">2 kg (R$120,00)</option>
+                                    <option value="2.5 kg" data-kg="2.5">2,5 kg (R$150,00)</option>
+                                    <option value="3 kg" data-kg="3.0">3 kg (R$180,00)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <p id="aviso-2-andares" style="font-size: 0.8em; color: red; margin-top: 5px; display: none;">⚠️ O peso da base deve ser **MAIOR** que o peso do topo.</p>
                     </div>
 
                     <div class="passo-card">
@@ -204,7 +186,7 @@
 
                     <div class="passo-card">
                         <h3>3. Recheios (Max. 2 Sabores)</h3>
-                        <p style="font-size: 0.9em; color: gray;">*Custo adicional por recheio.</p>
+                        <p style="font-size: 0.9em; color: gray;">*Custo adicional por recheio. (x2 para bolos de 2 andares)</p>
                         <div class="input-group">
                             <label class="recheio-label"><input type="checkbox" name="recheio" value="Morango" class="recheio-checkbox" data-preco-recheio="15"> Morango <span>(+R$15,00)</span></label>
                             <label class="recheio-label"><input type="checkbox" name="recheio" value="Leite Ninho" class="recheio-checkbox" data-preco-recheio="20"> Leite Ninho <span>(+R$20,00)</span></label>
@@ -382,9 +364,60 @@
 
 
 <script>
+    // Valor do KG
+    const PRECO_KG = 60.00;
+    
+    // Função para validar se a Base é maior que o Topo E gerenciar a exclusão mútua
+    function validarAndares() {
+        const tamanhoSelect = document.getElementById('tamanho-bolo');
+        const baseSelect = document.getElementById('peso-base');
+        const topoSelect = document.getElementById('peso-topo');
+        const aviso2Andares = document.getElementById('aviso-2-andares');
+
+        // Pega os KG como números
+        const kgBase = parseFloat(baseSelect.options[baseSelect.selectedIndex].getAttribute('data-kg')) || 0;
+        const kgTopo = parseFloat(topoSelect.options[topoSelect.selectedIndex].getAttribute('data-kg')) || 0;
+        
+        const doisAndaresSelecionados = (kgBase > 0 || kgTopo > 0);
+
+        if (doisAndaresSelecionados) {
+            // Se o usuário está configurando 2 andares, zera o 1 andar
+            tamanhoSelect.value = "";
+        }
+
+        // Validação de peso (Base > Topo)
+        if (kgBase > 0 && kgTopo > 0 && kgBase <= kgTopo) {
+            aviso2Andares.style.display = 'block';
+        } else {
+            aviso2Andares.style.display = 'none';
+        }
+
+        atualizarResumo();
+    }
+    
+    // Função para gerenciar a exclusão mútua quando o 1 andar é selecionado
+    function zerarDoisAndaresSeUmAndarSelecionado() {
+        const tamanhoSelect = document.getElementById('tamanho-bolo');
+        const baseSelect = document.getElementById('peso-base');
+        const topoSelect = document.getElementById('peso-topo');
+        
+        const umAndarSelecionado = tamanhoSelect.value !== "";
+
+        // Se 1 Andar for selecionado, zera os selects de 2 Andares
+        if (umAndarSelecionado) {
+            baseSelect.value = "0";
+            topoSelect.value = "0";
+            document.getElementById('aviso-2-andares').style.display = 'none'; 
+        }
+        
+        atualizarResumo(); 
+    }
+    
     // Função principal para calcular e atualizar o resumo
     function atualizarResumo() {
         const tamanhoSelect = document.getElementById('tamanho-bolo');
+        const baseSelect = document.getElementById('peso-base');
+        const topoSelect = document.getElementById('peso-topo');
         const dataInput = document.getElementById('data-entrega');
         const obsTextarea = document.getElementById('decoracao-obs');
         const massaRadio = document.querySelector('input[name="massa"]:checked');
@@ -392,27 +425,77 @@
         const resumoTexto = document.getElementById('resumo-texto');
         const btnFinalizar = document.getElementById('btn-finalizar');
 
-        // 1. Coleta e Cálculo do Preço Base do Bolo
-        const tamanhoSelecionado = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-        const tamanho = tamanhoSelecionado ? tamanhoSelecionado.value : 'Não Selecionado';
-        const precoBase = parseFloat(tamanhoSelecionado.getAttribute('data-preco')) || 0;
+        let tipoBolo = '';
+        let precoBase = 0;
         
-        // 2. Coleta e Cálculo dos Recheios
+        // Pega os KG como números
+        const kgBase = parseFloat(baseSelect.options[baseSelect.selectedIndex].getAttribute('data-kg')) || 0;
+        const kgTopo = parseFloat(topoSelect.options[topoSelect.selectedIndex].getAttribute('data-kg')) || 0;
+        
+        // 1. Determinação do Tipo de Bolo e Preço Base
+        if (tamanhoSelect.value !== "") {
+            // Opção 1: Bolo de 1 Andar
+            const tamanhoSelecionado = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+            tipoBolo = `1 Andar: ${tamanhoSelecionado.value}`;
+            precoBase = parseFloat(tamanhoSelecionado.getAttribute('data-preco')) || 0;
+            
+        } else if (kgBase > 0 || kgTopo > 0) {
+            // Opção 2: Bolo de 2 Andares
+
+            if (kgBase > 0 && kgTopo > 0 && kgBase > kgTopo) {
+                // Combinação de 2 Andares Válida
+                const pesoTotalBolo = kgBase + kgTopo;
+                precoBase = pesoTotalBolo * PRECO_KG;
+                tipoBolo = `2 Andares Personalizado:\n   - Base: ${kgBase} kg\n   - Topo: ${kgTopo} kg\n   - Peso Total: ${pesoTotalBolo.toFixed(1)} kg`;
+            } else if (kgBase === 0 || kgTopo === 0) {
+                 // 2 Andares Incompleto
+                 tipoBolo = `2 Andares: Incompleto. Base: ${kgBase}kg / Topo: ${kgTopo}kg`;
+                 precoBase = (kgBase + kgTopo) * PRECO_KG; 
+            } else {
+                 // Erro de Proporção (Base <= Topo)
+                 tipoBolo = `ERRO: Base (${kgBase}kg) não pode ser menor ou igual ao Topo (${kgTopo}kg).`;
+                 precoBase = 0;
+            }
+        } else {
+            // Nenhuma opção de tamanho/peso selecionada
+            tipoBolo = 'Não Selecionado';
+        }
+
+        // 2. Coleta e Cálculo dos Recheios (Limite de 2)
         let recheiosStr = 'Nenhum';
         let precoRecheios = 0;
         let recheiosSelecionados = [];
 
-        recheioCheckboxes.forEach(checkbox => {
-            const sabor = checkbox.value;
-            const preco = parseFloat(checkbox.getAttribute('data-preco-recheio')) || 0;
-            precoRecheios += preco;
-            recheiosSelecionados.push(`${sabor} (+R$${preco.toFixed(2).replace('.', ',')})`);
-        });
-
-        if (recheiosSelecionados.length > 0) {
-            recheiosStr = recheiosSelecionados.join('\n- ');
-        }
+        // Define o multiplicador para o custo do recheio (1 para 1 andar, 2 para 2 andares válidos)
+        const isTwoTierValid = (kgBase > 0 && kgTopo > 0 && kgBase > kgTopo);
+        const multiplicadorRecheio = isTwoTierValid ? 2 : 1; 
         
+        // Verifica o limite de recheios antes de calcular
+        if (recheioCheckboxes.length > 2) {
+             // A limitação real ocorre na função limitarRecheios (interface), mas zeramos aqui em caso de falha.
+             precoBase = 0; 
+             precoRecheios = 0;
+             tipoBolo = "ERRO: Mais de 2 recheios selecionados.";
+        } else {
+            recheioCheckboxes.forEach(checkbox => {
+                const sabor = checkbox.value;
+                const preco = parseFloat(checkbox.getAttribute('data-preco-recheio')) || 0;
+                
+                precoRecheios += preco * multiplicadorRecheio;
+                
+                let precoDisplay = `+R$${preco.toFixed(2).replace('.', ',')}`;
+                if (multiplicadorRecheio === 2) {
+                    precoDisplay = `+R$${(preco*2).toFixed(2).replace('.', ',')} (x2 andares)`;
+                }
+
+                recheiosSelecionados.push(`${sabor} (${precoDisplay})`);
+            });
+
+            if (recheiosSelecionados.length > 0) {
+                recheiosStr = recheiosSelecionados.join('\n- ');
+            }
+        }
+
         // 3. Coleta dos demais dados
         const massa = massaRadio ? massaRadio.value : 'Não Selecionada';
         const dataDesejada = dataInput.value ? new Date(dataInput.value).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : 'Não Informada';
@@ -423,19 +506,19 @@
 
         // 5. Montagem do Resumo na Tela
         const resumo = `
-* 🎂 *DETALHES DO PEDIDO*
+🎂 *DETALHES DO PEDIDO*
 
-* 📏 *Tamanho e Andares:* ${tamanho}
-* 🫓 *Massa:* ${massa}
-* 🥞 *Recheios Selecionados (${recheioCheckboxes.length}):* ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
-* 📆 *Data Desejada:* ${dataDesejada}
-* 📝 *Observações/Decoração:* ${obs}
+* *Bolo Selecionado:* ${tipoBolo}
+* *Massa:* ${massa}
+* *Recheios Selecionados (${recheioCheckboxes.length}):* ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
+* *Data Desejada:* ${dataDesejada}
+* *Observações/Decoração:* ${obs}
 
 ----------------------------------------
-* 💰 *ORÇAMENTO PRÉVIO*
-* 🎂 *Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}*
-* 💵 *Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}*
-* 💳 *TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}*
+💰 *ORÇAMENTO PRÉVIO*
+* Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}
+* Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}
+* *TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}*
 ----------------------------------------
 *O valor da decoração será confirmado após a análise das observações.*
         `.trim();
@@ -445,9 +528,8 @@
         // 6. Montagem da Mensagem do WhatsApp
         const mensagemWhats = `Olá, gostaria de fazer um pedido de bolo personalizado com o seguinte orçamento:\n\n${resumo}\n\nPor favor, confirme a disponibilidade e o valor final da decoração.`;
         
-        // URL de destino (Troque '55919xxxxxxxx' pelo seu número de WhatsApp com código do país e DDD)
+        // URL de destino (Troque '5562999999999' pelo seu número de WhatsApp com código do país e DDD)
         const numeroWhatsApp = '5562995679219'; 
-        
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhats)}`;
 
         btnFinalizar.href = urlWhatsApp;
@@ -466,16 +548,29 @@
     // Adiciona event listeners a todos os elementos do formulário que afetam o resumo
     document.getElementById('form-bolo').addEventListener('change', (e) => {
         if (e.target.classList.contains('recheio-checkbox')) {
-            limitarRecheios(e); // Chama a função que limita E atualiza o resumo
+            limitarRecheios(e); 
+        } else if (e.target.id === 'tamanho-bolo') {
+            // Se mudou o select de 1 andar, zera o de 2 andares
+            zerarDoisAndaresSeUmAndarSelecionado();
+        } else if (e.target.id === 'peso-base' || e.target.id === 'peso-topo') {
+            // Se mudou um dos selects de 2 andares, zera o de 1 andar e valida a proporção
+            validarAndares();
         } else {
-            atualizarResumo(); // Atualiza o resumo para os outros campos
+            // Atualiza o resumo para os outros campos (massa, data, etc.)
+            atualizarResumo(); 
         }
     });
 
     document.getElementById('form-bolo').addEventListener('input', atualizarResumo); // Para o campo de observações
 
     // Inicializa o resumo ao carregar a página
-    window.onload = atualizarResumo;
+    window.onload = () => {
+        // Garante que o estado inicial está limpo
+        document.getElementById('peso-base').value = "0";
+        document.getElementById('peso-topo').value = "0";
+        document.getElementById('tamanho-bolo').value = "";
+        atualizarResumo();
+    };
 </script>
 
 </body>
