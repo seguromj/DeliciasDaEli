@@ -17,12 +17,19 @@
     <style>
         /* Apenas para garantir que o formulário fique visualmente aceitável se o styles.css não carregar */
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f8f8f8; }
+        
         .app-screen { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        
         .nuance-info-box { padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        
         #criacao-bolo h2 { text-align: center; color: #d95388; }
+        
         .passos-criacao { display: grid; gap: 20px; }
+        
         .passo-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #fff; }
+        
         .passo-card h3 { color: #5cb85c; margin-top: 0; }
+        
         .input-group label { font-weight: 600; display: block; margin-bottom: 5px; color: #333; }
         .input-group select, .input-group input[type="date"], .input-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; }
         .input-group input[type="radio"], .input-group input[type="checkbox"] { margin-right: 5px; }
@@ -436,7 +443,8 @@
         const mensagemWhats = `Olá, gostaria de fazer um pedido de bolo personalizado com o seguinte orçamento:\n\n${resumo}\n\nPor favor, confirme a disponibilidade e o valor final da decoração.`;
         
         // URL de destino (Troque '55919xxxxxxxx' pelo seu número de WhatsApp com código do país e DDD)
-        const numeroWhatsApp = '5562999999999'; 
+        const numeroWhatsApp = '5562995679219'; 
+        
         const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhats)}`;
 
         btnFinalizar.href = urlWhatsApp;
