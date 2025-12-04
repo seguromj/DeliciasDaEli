@@ -170,24 +170,25 @@
                             <select id="tamanho-bolo" name="tamanho" required>
                                 <option value="" data-preco="0">-- Selecione --</option>
                                 <optgroup label="1 Andar">
-                                    <option value="Mini (13cm = 1 Kg)" data-preco="35">Mini (13cm = 1 Kg) - R$60,00</option>
-                                    <option value="Pequeno (15cm = 1,5 Kg)" data-preco="60">Pequeno (15cm = 1,5 Kg) - R$90,00</option>
-                                    <option value="Pequeno (15cm = 2 Kg)" data-preco="106">Pequeno (15cm = 2 Kg) - R$120,00</option>
-                                    <option value="Médio (16cm = 2,5 Kg)" data-preco="130">Médio (16cm = 2,5 Kg) - R$150,00</option>
+                                    <option value="Mini (13cm = 1 Kg)" data-preco="60">Mini (13cm = 1 Kg) - R$60,00</option>
+                                    <option value="Pequeno (15cm = 1,5 Kg)" data-preco="90">Pequeno (15cm = 1,5 Kg) - R$90,00</option>
+                                    <option value="Pequeno (15cm = 2 Kg)" data-preco="120">Pequeno (15cm = 2 Kg) - R$120,00</option>
+                                    <option value="Médio (16cm = 2,5 Kg)" data-preco="150">Médio (16cm = 2,5 Kg) - R$150,00</option>
                                     <option value="Médio (16cm = 3 Kg)" data-preco="180">Médio (16cm = 3 Kg) - R$180,00</option>
-                                    <option value="Grande (20cm = 3,5 Kg)" data-preco="200">Grande (20cm = 3,5 Kg) - R$210,00</option>
-                                    <option value="Grande (20cm = 4 Kg)" data-preco="250">Grande (20cm = 4 Kg) - R$240,00</option>
-                                    <option value="Grande (25cm = 4,5 Kg)" data-preco="250">Grande (25cm = 4,5 Kg) - R$270,00</option>
-                                    <option value="Grande (25cm = 5 Kg)" data-preco="250">Grande (25cm = 5 Kg) - R$300,00</option>
+                                    <option value="Grande (20cm = 3,5 Kg)" data-preco="210">Grande (20cm = 3,5 Kg) - R$210,00</option>
+                                    <option value="Grande (20cm = 4 Kg)" data-preco="240">Grande (20cm = 4 Kg) - R$240,00</option>
+                                    <option value="Grande (25cm = 4,5 Kg)" data-preco="270">Grande (25cm = 4,5 Kg) - R$270,00</option>
+                                    <option value="Grande (25cm = 5 Kg)" data-preco="300">Grande (25cm = 5 Kg) - R$300,00</option>
                                 </optgroup>
                                 <optgroup label="2 Andares">
-                                    <option value="2 Andares (22+14cm)" data-preco="220">2 Andares (22+14cm) - R$220,00</option>
-                                    <option value="2 Andares (25+16cm)" data-preco="300">2 Andares (25+16cm) - R$300,00</option>
-                                    <option value="2 Andares (28+20cm)" data-preco="380">2 Andares (28+20cm) - R$380,00</option>
-                                </optgroup>
-                                <optgroup label="Mais de 2 Andares">
-                                    <option value="3 Andares (28+20+14cm)" data-preco="440">3 Andares (28+20+14cm) - R$440,00</option>
-                                    <option value="3 Andares (30+25+17cm)" data-preco="500">3 Andares (30+25+17cm) - R$500,00</option>
+                                    <option value="2 Andares (1,5 kg + 1,0 kg = 2,5 kg)" data-preco="150">2 Andares (1,5 kg + 1,0  kg=  2,5  kg) - R$150,00</option>
+                                    <option value="2 Andares (2,5 kg + 1,0 kg = 3,5 kg)" data-preco="210">2 Andares (2,5 kg + 1,0  kg=  3,5  kg) - R$210,00</option>
+                                    <option value="2 Andares (2,5 kg + 1,5 kg = 4 kg)" data-preco="240">2 Andares (2,5 kg + 1,5 kg = 4 kg) - R$240,00</option>
+
+                                    <option value="2 Andares (3,0 kg + 1,0 kg = 4 kg)" data-preco="240">2 Andares (3 kg + 1,0 kg = 4 kg) - R$240,00</option>
+                                    <option value="2 Andares (3,5 kg + 1,0 kg = 4,5 kg)" data-preco="270">2 Andares (3,5 kg + 1,0 kg = 4,5 kg) - R$270,00</option>
+                                    <option value="2 Andares (4 kg + 1,5 kg = 5,5 kg)" data-preco="240">2 Andares (4 kg + 1,5 kg = 5,5 kg) - R$330,00</option>
+                            
                                 </optgroup>
                             </select>
                         </div>
@@ -422,19 +423,19 @@
 
         // 5. Montagem do Resumo na Tela
         const resumo = `
-* 🎂 DETALHES DO PEDIDO*
+* 🎂 *DETALHES DO PEDIDO*
 
-* *📏Tamanho e Andares:* ${tamanho}
-* *Massa:* ${massa}
-* *Recheios Selecionados (${recheioCheckboxes.length}):* ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
-* *Data Desejada:* ${dataDesejada}
-* *Observações/Decoração:* ${obs}
+* 📏 *Tamanho e Andares:* ${tamanho}
+* 🫓 *Massa:* ${massa}
+* 🥞 *Recheios Selecionados (${recheioCheckboxes.length}):* ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
+* 📆 *Data Desejada:* ${dataDesejada}
+* 📝 *Observações/Decoração:* ${obs}
 
 ----------------------------------------
-* 💰 ORÇAMENTO PRÉVIO*
-* 🎂 Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}
-* 💵 Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}
-* 💳 TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}*
+* 💰 *ORÇAMENTO PRÉVIO*
+* 🎂 *Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}*
+* 💵 *Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}*
+* 💳 *TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}*
 ----------------------------------------
 *O valor da decoração será confirmado após a análise das observações.*
         `.trim();
