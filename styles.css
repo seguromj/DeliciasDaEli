@@ -802,7 +802,7 @@ body {
             font-size: 1em; 
             height: 30px; /* Ajuda a manter o tamanho consistente */
             overflow: hidden;
-          font-size: 13px;
+          font-size: 10px;
         }
 
         .card-price {
