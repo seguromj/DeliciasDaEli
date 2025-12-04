@@ -422,19 +422,19 @@
 
         // 5. Montagem do Resumo na Tela
         const resumo = `
-🎂 **DETALHES DO PEDIDO**
+* 🎂 DETALHES DO PEDIDO*
 
-* **Tamanho e Andares:** ${tamanho}
-* **Massa:** ${massa}
-* **Recheios Selecionados (${recheioCheckboxes.length}):** ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
-* **Data Desejada:** ${dataDesejada}
-* **Observações/Decoração:** ${obs}
+* *📏Tamanho e Andares:* ${tamanho}
+* *Massa:* ${massa}
+* *Recheios Selecionados (${recheioCheckboxes.length}):* ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
+* *Data Desejada:* ${dataDesejada}
+* *Observações/Decoração:* ${obs}
 
 ----------------------------------------
-💰 **ORÇAMENTO PRÉVIO**
-* Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}
-* Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}
-* **TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}**
+* 💰 ORÇAMENTO PRÉVIO*
+* 🎂 Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}
+* 💵 Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}
+* 💳 TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}*
 ----------------------------------------
 *O valor da decoração será confirmado após a análise das observações.*
         `.trim();
