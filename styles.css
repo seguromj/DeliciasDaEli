@@ -77,9 +77,9 @@ body {
 }
 
 /* 1. CABEÇALHO COM IMAGEM DE FUNDO */
-.header-banner {
+.header-banner { /*Imagem no perfil*/
     height: 150px;
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEQHrEqQhJ3ysC9phTYPRABCk66VAX-KM43KaQQm3XEC-pZAh8y676e11E&s=10') no-repeat center center/cover; 
+    background: url('1764817097574.jpg') no-repeat center center/cover; 
     position: relative;
 }
 
