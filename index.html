@@ -689,7 +689,8 @@
             
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                    userLocation = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
+                    // CORREÇÃO: URL limpa e sem erros de sintaxe
+                    userLocation = "https://www.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude;
                     btn.innerText = "Tudo Ok";
                     btn.style.background = "var(--verde)";
                     document.getElementById('areaNome').style.display = "block";
@@ -706,21 +707,23 @@
             const nome = document.getElementById('nomeCliente').value;
             if(!nome) return alert("Por favor, digite seu nome.");
 
-            let mensagem = `*Novo Pedido - Delícias da Ely*%0A%0A`;
-            mensagem += `*Cliente:* ${nome}%0A`;
-            mensagem += `*Localização:* ${userLocation}%0A%0A`;
-            mensagem += `*Itens:*%0A`;
+            let texto = "*Novo Pedido - Delícias da Ely*\n\n";
+            texto += "*Cliente:* " + nome + "\n";
+            texto += "*Localização:* " + userLocation + "\n\n";
+            texto += "*Itens:*\n";
             
             let total = 0;
             cart.forEach(item => {
-                mensagem += `- ${item.qty}x ${item.name} (R$ ${(item.price * item.qty).toFixed(2)})%0A`;
+                texto += "- " + item.qty + "x " + item.name + " (R$ " + (item.price * item.qty).toFixed(2) + ")\n";
                 total += item.price * item.qty;
             });
             
-            mensagem += `%0A*Total: R$ ${total.toFixed(2)}*`;
+            texto += "\n*Total: R$ " + total.toFixed(2) + "*";
             
+            // CORREÇÃO: EncodeURIComponent para limpar caracteres especiais que o Google trava
             const fone = "5562995679219";
-            window.open(`https://wa.me/${fone}?text=${mensagem}`, '_blank');
+            const mensagemFinal = encodeURIComponent(texto);
+            window.open("https://api.whatsapp.com/send?phone=" + fone + "&text=" + mensagemFinal, "_blank");
         }
 
         setInterval(checkStatus, 1000);
