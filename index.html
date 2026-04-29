@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -528,18 +529,7 @@
     <div id="finalizarModal">
         <h2 style="color: var(--rodape); margin-bottom: 20px;">Finalizar Pedido</h2>
         
-        <div class="security-box">
-            <strong>🔒 Segurança e Privacidade:</strong><br>
-            Para realizar a entrega, solicitamos acesso à sua localização em tempo real. 
-            Suas coordenadas serão usadas <strong>apenas para este pedido</strong> e enviadas diretamente via WhatsApp para a loja. 
-            Não armazenamos seus dados de localização em nosso servidor.
-        </div>
-
-        <p>Deseja permitir o acesso para entrega?</p>
-        
-        <button id="btnLoc" class="btn-add" onclick="solicitarPermisaoLocalizacao()" style="background: var(--orange);">Permitir Localização e Continuar</button>
-        
-        <div id="areaNome" style="display:none; margin-top: 30px;">
+        <div id="areaNome" style="margin-top: 30px;">
             <p>Quem irá receber o pedido?</p>
             <input type="text" id="nomeCliente" class="input-cliente" placeholder="Digite seu nome (Obrigatório)" required>
             <button class="btn-add" onclick="enviarPedidoWhatsApp()">Finalizar Pedido via WhatsApp</button>
@@ -702,41 +692,12 @@
             document.getElementById('finalizarModal').style.display = 'none';
         }
 
-        function solicitarPermisaoLocalizacao() {
-            const btn = document.getElementById('btnLoc');
-            
-            if (confirm("🔒 AVISO DE SEGURANÇA\n\nEste site solicita acesso à sua localização GPS apenas para facilitar a entrega dos seus pedidos. Seus dados não serão salvos permanentemente.\n\nDeseja permitir agora?")) {
-                pegarLocalizacao();
-            }
-        }
-
-        function pegarLocalizacao() {
-            const btn = document.getElementById('btnLoc');
-            btn.innerText = "Buscando localização segura...";
-            
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    userLocation = "https://www.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude;
-                    btn.innerText = "Localização Verificada ✓";
-                    btn.style.background = "var(--verde)";
-                    btn.onclick = null;
-                    document.getElementById('areaNome').style.display = "block";
-                }, () => {
-                    alert("Acesso negado. Por favor, autorize a localização nas configurações do seu navegador para continuar com a entrega.");
-                    btn.innerText = "Tentar permitir novamente";
-                }, { enableHighAccuracy: true });
-            } else {
-                alert("Seu navegador não suporta geolocalização segura.");
-            }
-        }
-
         function enviarPedidoWhatsApp() {
             const nome = document.getElementById('nomeCliente').value;
             if(!nome) return alert("Por favor, digite seu nome.");
 
             let texto = "*Novo Pedido - Delícias da Ely*\n\n";
             texto += "*Cliente:* " + nome + "\n";
-            texto += "*Localização:* " + userLocation + "\n\n";
             texto += "*Itens:*\n";
             
             let total = 0;
@@ -758,4 +719,3 @@
     </script>
 </body>
 </html>
-
