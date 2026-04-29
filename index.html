@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -398,6 +397,7 @@
             flex-direction: column;
             padding: 30px;
             text-align: center;
+            overflow-y: auto;
         }
 
         .input-cliente {
@@ -407,6 +407,17 @@
             border: 2px solid #eee;
             border-radius: 10px;
             font-size: 16px;
+        }
+
+        .security-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #555;
+            margin: 15px 0;
+            text-align: left;
         }
     
     </style>
@@ -464,7 +475,7 @@
         <div class="price-old">de R$ 24,80 por</div>
         <div class="price-new">R$ 20,00</div>
         <div class="urgent">🔥 Apenas 1 unidade(s) com esse preço especial</div>
-        <button class="btn-add" onclick="addToCart('Bolo Tradicional', 20.00, 'https://img.freepik.com/fotos-gratis/bolo-de-chocolate-caseiro-com-cobertura_23-2148769300.jpg', event)">Adicionar ao carrinho</button>
+        <button class="btn-add" onclick="addToCart('Combo Família', 49.90, 'https://img.freepik.com/fotos-gratis/bolo-de-chocolate-caseiro-com-cobertura_23-2148769300.jpg', event)">Adicionar ao carrinho</button>
     </div>
 
     <hr class="linha-rosa-2">
@@ -516,14 +527,22 @@
 
     <div id="finalizarModal">
         <h2 style="color: var(--rodape); margin-bottom: 20px;">Finalizar Pedido</h2>
-        <p>Para entregar seus bolos, precisamos da sua localização:</p>
         
-        <button id="btnLoc" class="btn-add" onclick="pegarLocalizacao()" style="background: var(--orange);">Confirmar Localização Exata</button>
+        <div class="security-box">
+            <strong>🔒 Segurança e Privacidade:</strong><br>
+            Para realizar a entrega, solicitamos acesso à sua localização em tempo real. 
+            Suas coordenadas serão usadas <strong>apenas para este pedido</strong> e enviadas diretamente via WhatsApp para a loja. 
+            Não armazenamos seus dados de localização em nosso servidor.
+        </div>
+
+        <p>Deseja permitir o acesso para entrega?</p>
+        
+        <button id="btnLoc" class="btn-add" onclick="solicitarPermisaoLocalizacao()" style="background: var(--orange);">Permitir Localização e Continuar</button>
         
         <div id="areaNome" style="display:none; margin-top: 30px;">
             <p>Quem irá receber o pedido?</p>
             <input type="text" id="nomeCliente" class="input-cliente" placeholder="Digite seu nome (Obrigatório)" required>
-            <button class="btn-add" onclick="enviarPedidoWhatsApp()">Finalizar Pedido</button>
+            <button class="btn-add" onclick="enviarPedidoWhatsApp()">Finalizar Pedido via WhatsApp</button>
         </div>
         
         <button class="close-modal" onclick="fecharFinalizar()" style="margin-top: 40px; background: none; border: none; text-decoration: underline;">Voltar ao carrinho</button>
@@ -620,7 +639,7 @@
 
         function renderCart() {
             const list = document.getElementById('cartItemsList');
-            const totalPriceText = document.getElementById('totalPrice');
+            const totalText = document.getElementById('totalPrice');
             const floatingCart = document.getElementById('floatingCart');
             list.innerHTML = '';
             let total = 0;
@@ -651,7 +670,7 @@
                 `;
             });
 
-            totalPriceText.innerText = `Total: R$ ${total.toFixed(2)}`;
+            totalText.innerText = `Total: R$ ${total.toFixed(2)}`;
         }
 
         function changeQty(index, delta) {
@@ -683,23 +702,31 @@
             document.getElementById('finalizarModal').style.display = 'none';
         }
 
+        function solicitarPermisaoLocalizacao() {
+            const btn = document.getElementById('btnLoc');
+            
+            if (confirm("🔒 AVISO DE SEGURANÇA\n\nEste site solicita acesso à sua localização GPS apenas para facilitar a entrega dos seus pedidos. Seus dados não serão salvos permanentemente.\n\nDeseja permitir agora?")) {
+                pegarLocalizacao();
+            }
+        }
+
         function pegarLocalizacao() {
             const btn = document.getElementById('btnLoc');
-            btn.innerText = "Buscando localização...";
+            btn.innerText = "Buscando localização segura...";
             
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                    // CORREÇÃO: URL oficial e limpa para evitar bloqueio do navegador
                     userLocation = "https://www.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude;
-                    btn.innerText = "Tudo Ok";
+                    btn.innerText = "Localização Verificada ✓";
                     btn.style.background = "var(--verde)";
+                    btn.onclick = null;
                     document.getElementById('areaNome').style.display = "block";
                 }, () => {
-                    alert("Não conseguimos pegar sua localização. Verifique as permissões do seu navegador.");
-                    btn.innerText = "Confirmar Localização Exata";
-                });
+                    alert("Acesso negado. Por favor, autorize a localização nas configurações do seu navegador para continuar com a entrega.");
+                    btn.innerText = "Tentar permitir novamente";
+                }, { enableHighAccuracy: true });
             } else {
-                alert("Seu navegador não suporta geolocalização.");
+                alert("Seu navegador não suporta geolocalização segura.");
             }
         }
 
@@ -720,7 +747,6 @@
             
             texto += "\n*Total: R$ " + total.toFixed(2) + "*";
             
-            // CORREÇÃO: EncodeURIComponent para garantir que o link seja aberto sem erros de segurança
             const fone = "5562995679219";
             const mensagemFinal = encodeURIComponent(texto);
             window.open("https://api.whatsapp.com/send?phone=" + fone + "&text=" + mensagemFinal, "_blank");
@@ -732,3 +758,4 @@
     </script>
 </body>
 </html>
+
