@@ -464,7 +464,7 @@
         <div class="price-old">de R$ 24,80 por</div>
         <div class="price-new">R$ 20,00</div>
         <div class="urgent">🔥 Apenas 1 unidade(s) com esse preço especial</div>
-        <button class="btn-add" onclick="addToCart('Combo Família', 49.90, 'https://img.freepik.com/fotos-gratis/bolo-de-chocolate-caseiro-com-cobertura_23-2148769300.jpg', event)">Adicionar ao carrinho</button>
+        <button class="btn-add" onclick="addToCart('Bolo Tradicional', 20.00, 'https://img.freepik.com/fotos-gratis/bolo-de-chocolate-caseiro-com-cobertura_23-2148769300.jpg', event)">Adicionar ao carrinho</button>
     </div>
 
     <hr class="linha-rosa-2">
@@ -620,7 +620,7 @@
 
         function renderCart() {
             const list = document.getElementById('cartItemsList');
-            const totalText = document.getElementById('totalPrice');
+            const totalPriceText = document.getElementById('totalPrice');
             const floatingCart = document.getElementById('floatingCart');
             list.innerHTML = '';
             let total = 0;
@@ -651,7 +651,7 @@
                 `;
             });
 
-            totalText.innerText = `Total: R$ ${total.toFixed(2)}`;
+            totalPriceText.innerText = `Total: R$ ${total.toFixed(2)}`;
         }
 
         function changeQty(index, delta) {
@@ -689,7 +689,7 @@
             
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                    // CORREÇÃO: URL limpa e sem erros de sintaxe
+                    // CORREÇÃO: URL oficial e limpa para evitar bloqueio do navegador
                     userLocation = "https://www.google.com/maps?q=" + position.coords.latitude + "," + position.coords.longitude;
                     btn.innerText = "Tudo Ok";
                     btn.style.background = "var(--verde)";
@@ -720,7 +720,7 @@
             
             texto += "\n*Total: R$ " + total.toFixed(2) + "*";
             
-            // CORREÇÃO: EncodeURIComponent para limpar caracteres especiais que o Google trava
+            // CORREÇÃO: EncodeURIComponent para garantir que o link seja aberto sem erros de segurança
             const fone = "5562995679219";
             const mensagemFinal = encodeURIComponent(texto);
             window.open("https://api.whatsapp.com/send?phone=" + fone + "&text=" + mensagemFinal, "_blank");
