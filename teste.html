@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"> 
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <title>Delícias da Eli</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Apenas para garantir que o formulário fique visualmente aceitável se o styles.css não carregar */
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f8f8f8; }
+        .app-screen { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .nuance-info-box { padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        #criacao-bolo h2 { text-align: center; color: #d95388; }
+        .passos-criacao { display: grid; gap: 20px; }
+        .passo-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #fff; }
+        .passo-card h3 { color: #5cb85c; margin-top: 0; }
+        .input-group label { font-weight: 600; display: block; margin-bottom: 5px; color: #333; }
+        .input-group select, .input-group input[type="date"], .input-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px; }
+        .input-group input[type="radio"], .input-group input[type="checkbox"] { margin-right: 5px; }
+        #resumo-pedido { margin-top: 30px; border: 2px dashed #d95388; padding: 15px; border-radius: 8px; background-color: #fff0f5; }
+        #resumo-pedido h3 { color: #d95388; margin-top: 0; }
+        #resumo-texto { white-space: pre-wrap; background-color: #fff; padding: 10px; border-radius: 4px; border: 1px solid #eee; }
+        .btn-whatsapp { display: inline-block; padding: 15px 25px; background-color: #25d366; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: background-color 0.3s; }
+        .btn-whatsapp:hover { background-color: #1c9f4e; }
+        /* Estilos adicionais para os recheios */
+        .recheio-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .recheio-label span { font-weight: normal; color: #555; }
+    </style>
+</head>
+<body>
+
+<main class="app-screen"><header class="header-banner">
+        </header>
+
+<section class="nuance-info-box">
+            <div class="logo-box">
+                  <img class="nuance-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQNQZlZj8vIuoIsome4VZPOvlMRjrgSESjVYii0xSVcaKBhkSk69u2mmQ&s=10" alt="Sabor de Casa Logo">
+            </div>
+            
+              
+    
+    
+    
+            <div id="status-container" class="status aberto">
+                 <span id="status-text">ABERTO</span>
+            </div>
+ <br><br>           
+             <i class="fa-solid fa-location-dot"></i>
+             <span class="avaliacao-1">
+                 Fazemos entregas
+                 <br>
+                 Anápolis-GO
+             </span>
+ <br>
+             <i class="fa-solid fa-star estrela-diagonal"></i> <span class="avaliacao-1">
+                 4,9 (1.719 avaliações)
+             </span>
+    
+             
+<div class="carrossel-container">
+        <div class="carrossel-faixa">
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlOT8oUT5MeVN_gUSNhBJaYvV3IyG8ejWajajIWjH_ABG4JXsal4YJZyMQ&s=10" alt="Imagem 1"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdIGFjrHUWLv56BwODB4dNjlOQtqwQEaTZa1a7pYf5Xw&s=10" alt="Imagem 2"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNZMmB5C22F64LNJMtrpK2MpZxNPai8QLezSwK5DehA&s=10" alt="Imagem 3"></div>
+            <div class="item-carrossel"><img src="https://receitas123.com/wp-content/uploads/2023/03/bolo-de-aniversario.png" alt="Imagem 4"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXUyLrEEnCIn01f9apkauJ8BYWM5Ox6jJ6X8KKrZjKhKOlVGb6zkgSrbEp&s=10" alt="Imagem 5"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1YtGdJWLKeepIzXmuhxVgcKzLlBRAfOqmHyM_sUSTA&s=10" alt="Imagem 6"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0L53KzRDoJVNgpym578OlNKY0q5T0vsZUv6Kbtm8bwkyuKon8shewMldf&s=10" alt="Imagem 7"></div>
+            
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlOT8oUT5MeVN_gUSNhBJaYvV3IyG8ejWajajIWjH_ABG4JXsal4YJZyMQ&s=10" alt="Imagem 1"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdIGFjrHUWLv56BwODB4dNjlOQtqwQEaTZa1a7pYf5Xw&s=10" alt="Imagem 2"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNZMmB5C22F64LNJMtrpK2MpZxNPai8QLezSwK5DehA&s=10" alt="Imagem 3"></div>
+            <div class="item-carrossel"><img src="https://receitas123.com/wp-content/uploads/2023/03/bolo-de-aniversario.png" alt="Imagem 4"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXUyLrEEnCIn01f9apkauJ8BYWM5Ox6jJ6X6KKrZjKhKOlVGb6zkgSrbEp&s=10" alt="Imagem 5"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1YtGdJWLKeepIzXmuhxVgcKzLlBRAfOqmHyM_sUSTA&s=10" alt="Imagem 6"></div>
+            <div class="item-carrossel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0L53KzRDoJVNgpym578OlNKY0q5T0vsZUv6Kbtm8bwkyuKon8shewMldf&s=10" alt="Imagem 7"></div>
+              
+              
+        </div>
+    </div>
+<div class="carousel-wrapper">
+
+        <div class="card-container card-4">
+            <img src="imgs/img1.jpeg" alt="Smartwatch Esportivo A" class="card-image">
+            <div class="card-body">
+                <h3 class="card-title">Smartwatch Esportivo Pro</h3>
+                <div class="rating">★★★★★ (4.8)</div>
+                <p>Monitora treino e sono.</p>
+                <p class="card-price">R$ 520,00</p>
+                <a href="#" class="card-button">Mais Opções</a>
+            </div>
+        </div>
+
+        <div class="card-container card-4">
+            <img src="imgs/img2.png" alt="Fone Bluetooth" class="card-image">
+            <div class="card-body">
+                <h3 class="card-title">Fone Bluetooth TWS X9</h3>
+                <div class="rating">★★★★☆ (4.2)</div>
+                <p>Áudio nítido e leve.</p>
+                <p class="card-price">R$ 189,90</p>
+                <a href="#" class="card-button">Mais Opções</a>
+            </div>
+        </div>
+
+        <div class="card-container card-4">
+            <img src="imgs/img3.jpg" alt="Ebook Programação" class="card-image">
+            <div class="card-body">
+                <h3 class="card-title">Ebook: Guia de Backend</h3>
+                <div class="rating">★★★★★ (5.0)</div>
+                <p>Aprenda a criar APIs.</p>
+                <p class="card-price">R$ 49,99</p>
+                <a href="#" class="card-button">Comprar</a>
+            </div>
+        </div>
+
+        <div class="card-container card-4">
+            <img src="imgs/img4.jpg" alt="Cadeira Gamer" class="card-image">
+            <div class="card-body">
+                <h3 class="card-title">Cadeira Gamer Ergonômica</h3>
+                <div class="rating">★★★★☆ (4.5)</div>
+                <p>Máximo conforto para longas sessões.</p>
+                <p class="card-price">R$ 999,00</p>
+                <a href="#" class="card-button">Mais Opções</a>
+            </div>
+        </div>
+
+        <div class="card-container card-4">
+            <img src="imgs/img5.jpeg" alt="Caneca Termica" class="card-image">
+            <div class="card-body">
+                <h3 class="card-title">Caneca Térmica Inox</h3>
+                <div class="rating">★★★★☆ (4.3)</div>
+                <p>Mantém a bebida quente por horas.</p>
+                <p class="card-price">R$ 85,50</p>
+                <a href="#" class="card-button">Comprar Agora</a>
+            </div>
+        </div>
+        
+    </div>
+
+
+<hr style="border: 0; border-top: 1px dashed var(--rosa-principal); margin: 60px 0;">
+
+        <section id="criacao-bolo">
+            <h2>Monte Seu Bolo<br>✨Personalizado✨</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Faça suas escolhas e o resumo será gerado automaticamente para enviar no WhatsApp.</p>
+
+            <form id="form-bolo">
+                <div class="passos-criacao">
+
+                    <div class="passo-card">
+                        <h3>1. Tamanho e Andares</h3>
+                        <div class="input-group">
+                            <label for="tamanho-bolo">Escolha o Tamanho:</label>
+                            <select id="tamanho-bolo" name="tamanho" required>
+                                <option value="" data-preco="0">-- Selecione --</option>
+                                <optgroup label="1 Andar">
+                                    <option value="Mini (10x10cm)" data-preco="35">Mini (10x10cm) - R$35,00</option>
+                                    <option value="Pequeno (16x8cm)" data-preco="60">Pequeno (16x8cm) - R$60,00</option>
+                                    <option value="Pequeno (17x12cm)" data-preco="106">Pequeno (17x12cm) - R$106,00</option>
+                                    <option value="Médio (20x12cm)" data-preco="130">Médio (20x12cm) - R$130,00</option>
+                                    <option value="Médio (22x12cm)" data-preco="180">Médio (22x12cm) - R$180,00</option>
+                                    <option value="Grande (25x12cm)" data-preco="200">Grande (25x12cm) - R$200,00</option>
+                                    <option value="Grande (28x12cm)" data-preco="250">Grande (28x12cm) - R$250,00</option>
+                                </optgroup>
+                                <optgroup label="2 Andares">
+                                    <option value="2 Andares (22+14cm)" data-preco="220">2 Andares (22+14cm) - R$220,00</option>
+                                    <option value="2 Andares (25+16cm)" data-preco="300">2 Andares (25+16cm) - R$300,00</option>
+                                    <option value="2 Andares (28+20cm)" data-preco="380">2 Andares (28+20cm) - R$380,00</option>
+                                </optgroup>
+                                <optgroup label="Mais de 2 Andares">
+                                    <option value="3 Andares (28+20+14cm)" data-preco="440">3 Andares (28+20+14cm) - R$440,00</option>
+                                    <option value="3 Andares (30+25+17cm)" data-preco="500">3 Andares (30+25+17cm) - R$500,00</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>2. Massa (1 Sabor)</h3>
+                        <div class="input-group">
+                            <input type="radio" name="massa" value="Branca" id="massa-branca" checked> <label for="massa-branca">Branca</label><br>
+                            <input type="radio" name="massa" value="Chocolate" id="massa-chocolate"> <label for="massa-chocolate">Chocolate</label>
+                        </div>
+                    </div>
+
+                    <div class="passo-card">
+                        <h3>3. Recheios (Max. 2 Sabores)</h3>
+                        <p style="font-size: 0.9em; color: gray;">*Custo adicional por recheio.</p>
+                        <div class="input-group">
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Morango" class="recheio-checkbox" data-preco-recheio="15"> Morango <span>(+R$15,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Leite Ninho" class="recheio-checkbox" data-preco-recheio="20"> Leite Ninho <span>(+R$20,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Nutella" class="recheio-checkbox" data-preco-recheio="30"> Nutella <span>(+R$30,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Chocolate" class="recheio-checkbox" data-preco-recheio="10"> Chocolate <span>(+R$10,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Doce de Leite" class="recheio-checkbox" data-preco-recheio="10"> Doce de Leite <span>(+R$10,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Cupuaçu" class="recheio-checkbox" data-preco-recheio="25"> Cupuaçu <span>(+R$25,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Maracujá" class="recheio-checkbox" data-preco-recheio="15"> Maracujá <span>(+R$15,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Café" class="recheio-checkbox" data-preco-recheio="20"> Café <span>(+R$20,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Mousse de Goiabada" class="recheio-checkbox" data-preco-recheio="10"> Mousse de Goiabada <span>(+R$10,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Abacaxi" class="recheio-checkbox" data-preco-recheio="5"> Abacaxi <span>(+R$5,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Amendoim" class="recheio-checkbox" data-preco-recheio="10"> Amendoim <span>(+R$10,00)</span></label>
+                            <label class="recheio-label"><input type="checkbox" name="recheio" value="Ameixa" class="recheio-checkbox" data-preco-recheio="5"> Ameixa <span>(+R$5,00)</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="passo-card">
+                        <h3>4. Decoração e Data</h3>
+                        <div class="input-group">
+                            <label for="data-entrega">Data Desejada:</label>
+                            <input type="date" id="data-entrega" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="decoracao-obs">Observações (Tema, Cores, Extras):</label>
+                            <textarea class="bbb" id="decoracao-obs" placeholder="Ex: Tema Unicórnio, Cores: rosa, roxo e dourado, com Glitter e Morangos no topo."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <div id="resumo-pedido">
+                <h3>🛒 Resumo do Seu Pedido (Orçamento)</h3>
+                <pre id="resumo-texto">Selecione as opções acima para visualizar o resumo e o preço base.</pre>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a id="btn-finalizar" href="#" target="_blank" class="btn btn-whatsapp">
+                    <span style="font-size: 1.5em;">&#9990;</span> Enviar Pedido e Orçamento (WhatsApp)
+                </a>
+                <p style="margin-top: 10px; font-size: 0.9em;">*O preço final pode variar de acordo com a complexidade da decoração.</p>
+            </div>
+
+        </section>
+
+    </div>
+
+  
+    
+
+
+<div class="review-carousel-container">
+         <br>
+     <hr>
+    <h2>
+    <i class="fa-solid fa-star estrela-diagonal"></i>
+    4,9 (986 Comentários)
+    </h2>
+    
+        
+
+    <div class="carousel-track" id="carouselTrack">
+        <div class="review-card">
+            <img class="img-estrela" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3EBqT4g59WluzImtcXJ4SWxFZze7ObwS3L4GpHZ_zY97YlYdT3MWLjry-&s=10" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                
+                <p class="client-name">Juliana P.</p>
+                <p class="comment">"O<strong> **Mojito Clássico de Morango**</strong> estava PERFEITO, o melhor que já tomei. Super recomendo!"</p>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <img class="img-estrela" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzKgMB3dSrhi7WheJuoGQ9P8SURCz8rGKpCL8GyGukG81VB7c3ue1ErOEz&s=10" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-diagonal"></i>
+                
+                <p class="client-name">Ricardo L.</p>
+                <p class="comment">"Pedi o famoso <strong>**Drink com Morango**</strong> da casa e fiquei impressionado com a espuma de gengibre e o sabor equilibrado."</p>
+            </div>
+        </div>
+        
+        <div class="review-card">
+            <img class="img-estrela" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_JjEEmuwAJW1EPEZbPrELjDMRA96_ccAtRYCyjA_yP0kHIsdJbsEPHs0&s=10" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                
+                <p class="client-name">Mariane S.</p>
+                <p class="comment">"O <strong>**Mango Fizz**</strong> estava na temperatura ideal e com a proporção perfeita. Combinação excelente."</p>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <img class="img-estrela" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoDONHktjVLYiXDd_Oh-3kscKaiVNX61BsilyT-4-yuS7JWmSBU160r6-t&s=10" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                
+                <p class="client-name">Felipe B.</p>
+                <p class="comment">"Pedi o <strong>**Blackberry Gin & Tonic**</strong> e deu para sentir a qualidade dos ingredientes. Um drink de respeito."</p>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <img class="img-estrela" src="https://cdn.dooca.store/1390/files/image-24.png?v=1610486883&webp=0" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-diagonal"></i>
+                
+                <p class="client-name">Ana C.</p>
+                <p class="comment">"O <strong>**Summer Sunset Smash**</strong> estava doce na medida certa, refrescante e muito bem apresentado!"</p>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <img class="img-estrela" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjkOydpFDr0WRpc6LrKFw3IJvBrIrDt9NKfucVoCaHgRV-foqxWf7Enu4&s=10" alt="imagem-drink">
+            <div class="card-content">
+                
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+                <i class="fa-solid fa-star estrela-carrocel"></i>
+
+                <p class="client-name">Guilherme N.</p>
+                <p class="comment">"Não posso deixar de falar do **Gin Tônica de Frutas Vermelhas**. A apresentação era linda e o sabor... uau!"</p>
+            </div>
+        </div>
+    </div>
+    
+
+
+<div id="atencao-box">
+    <div class="atencao-header">
+        <div class="atencao-checkmark">
+            <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="#4CAF50"/>
+                <path stroke="#fff" stroke-width="5" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <span class="atencao-icon">⚠️ Atenção!</span>
+    </div>
+    <div id="mensagem-conteudo" class="atencao-body">
+        </div>
+  </div>
+         
+<footer>
+        <p>Organização: Thainá Keline <br>WhatsApp: (91) 9xxxx-xxxc <br> Instagram: <a href="https://instagram.com/bo">@deliciasdaeli</a></p>
+    </footer>
+
+</main>
+
+
+<script>
+    // Função principal para calcular e atualizar o resumo
+    function atualizarResumo() {
+        const tamanhoSelect = document.getElementById('tamanho-bolo');
+        const dataInput = document.getElementById('data-entrega');
+        const obsTextarea = document.getElementById('decoracao-obs');
+        const massaRadio = document.querySelector('input[name="massa"]:checked');
+        const recheioCheckboxes = document.querySelectorAll('.recheio-checkbox:checked');
+        const resumoTexto = document.getElementById('resumo-texto');
+        const btnFinalizar = document.getElementById('btn-finalizar');
+
+        // 1. Coleta e Cálculo do Preço Base do Bolo
+        const tamanhoSelecionado = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+        const tamanho = tamanhoSelecionado ? tamanhoSelecionado.value : 'Não Selecionado';
+        const precoBase = parseFloat(tamanhoSelecionado.getAttribute('data-preco')) || 0;
+        
+        // 2. Coleta e Cálculo dos Recheios
+        let recheiosStr = 'Nenhum';
+        let precoRecheios = 0;
+        let recheiosSelecionados = [];
+
+        recheioCheckboxes.forEach(checkbox => {
+            const sabor = checkbox.value;
+            const preco = parseFloat(checkbox.getAttribute('data-preco-recheio')) || 0;
+            precoRecheios += preco;
+            recheiosSelecionados.push(`${sabor} (+R$${preco.toFixed(2).replace('.', ',')})`);
+        });
+
+        if (recheiosSelecionados.length > 0) {
+            recheiosStr = recheiosSelecionados.join('\n- ');
+        }
+        
+        // 3. Coleta dos demais dados
+        const massa = massaRadio ? massaRadio.value : 'Não Selecionada';
+        const dataDesejada = dataInput.value ? new Date(dataInput.value).toLocaleDateString('pt-BR', {timeZone: 'UTC'}) : 'Não Informada';
+        const obs = obsTextarea.value.trim() || 'Nenhuma';
+        
+        // 4. Cálculo do Total
+        const precoTotal = precoBase + precoRecheios;
+
+        // 5. Montagem do Resumo na Tela
+        const resumo = `
+🎂 **DETALHES DO PEDIDO**
+
+* **Tamanho e Andares:** ${tamanho}
+* **Massa:** ${massa}
+* **Recheios Selecionados (${recheioCheckboxes.length}):** ${recheiosStr.startsWith('Nenhum') ? '- Nenhum' : '- ' + recheiosStr}
+* **Data Desejada:** ${dataDesejada}
+* **Observações/Decoração:** ${obs}
+
+----------------------------------------
+💰 **ORÇAMENTO PRÉVIO**
+* Preço Base do Bolo: R$${precoBase.toFixed(2).replace('.', ',')}
+* Custo Adicional Recheios: R$${precoRecheios.toFixed(2).replace('.', ',')}
+* **TOTAL ESTIMADO: R$${precoTotal.toFixed(2).replace('.', ',')}**
+----------------------------------------
+*O valor da decoração será confirmado após a análise das observações.*
+        `.trim();
+        
+        resumoTexto.textContent = resumo;
+        
+        // 6. Montagem da Mensagem do WhatsApp
+        const mensagemWhats = `Olá, gostaria de fazer um pedido de bolo personalizado com o seguinte orçamento:\n\n${resumo}\n\nPor favor, confirme a disponibilidade e o valor final da decoração.`;
+        
+        // URL de destino (Troque '55919xxxxxxxx' pelo seu número de WhatsApp com código do país e DDD)
+        const numeroWhatsApp = '5562999999999'; 
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhats)}`;
+
+        btnFinalizar.href = urlWhatsApp;
+    }
+
+    // Função para limitar a seleção de recheios a 2
+    function limitarRecheios(event) {
+        const recheioCheckboxes = document.querySelectorAll('.recheio-checkbox:checked');
+        if (recheioCheckboxes.length > 2) {
+            alert('Você pode selecionar no máximo 2 opções de recheio.');
+            event.target.checked = false; // Desmarca o último item clicado
+        }
+        atualizarResumo(); // Chama o resumo após a tentativa de seleção
+    }
+
+    // Adiciona event listeners a todos os elementos do formulário que afetam o resumo
+    document.getElementById('form-bolo').addEventListener('change', (e) => {
+        if (e.target.classList.contains('recheio-checkbox')) {
+            limitarRecheios(e); // Chama a função que limita E atualiza o resumo
+        } else {
+            atualizarResumo(); // Atualiza o resumo para os outros campos
+        }
+    });
+
+    document.getElementById('form-bolo').addEventListener('input', atualizarResumo); // Para o campo de observações
+
+    // Inicializa o resumo ao carregar a página
+    window.onload = atualizarResumo;
+</script>
+
+</body>
+</html>
